@@ -1,8 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./layout/Layout";
-import Home from "./pages/Home";
-import History from "./pages/History";
-import Shop from "./pages/Shop";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Layout from "./layout/Layout"
+import Home from "./pages/Home"
+import History from "./pages/History"
+import Shop from "./pages/Shop"
+import About from "./pages/About"
+import "./App.css"
 
 export default function App() {
   return (
@@ -12,10 +14,9 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="history" element={<History />} />
           <Route path="shop" element={<Shop />} />
-          
+          <Route path="about" element={<About />} />
         </Route>
       </Routes>
     </BrowserRouter>
-
   );
 }

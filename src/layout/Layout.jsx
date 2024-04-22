@@ -1,33 +1,43 @@
 import Footer from './Footer.jsx'
-import Header from "./Header.jsx";
-import {Outlet, Link} from "react-router-dom";
+import About from '../pages/About.jsx'
+import History from '../pages/History.jsx'
+import Shop from '../pages/Shop.jsx'
+import {Outlet, Link} from "react-router-dom"
 
 export default function Layout (){
     return (
         <>
         <nav>
+            <Link to ="/">
+                <img id="logo" src="src/assets/LOGO_ARMADA_324x205.png"></img>             
+            </Link>
             <div>
-                <Link to ="/">
-                    Home
+                <Link to="/About">
+                    Acerca de
                 </Link>
                 <Link to="/History">
-                    History
+                    Historia
                 </Link>
                 <Link to="/Shop">
-                    Shop
+                    Tienda
                 </Link>
             </div>
         </nav>
         <div>
-            <Header/>
-        </div>
-        <div>
             <Outlet />
         </div>
         <div>
-            <Footer />
+            <About />
+        </div>
+        <div>
+            <History />
+        </div>
+        <div>
+            <Shop />
+        </div>
+        <div>
+            <Footer className="footer" />
         </div>
         </>
-
     )
 }

@@ -16,23 +16,14 @@ This project is shop online
 - H2 database testing
 ```
 
-### Important !!!
-
-[](https://github.com/jaivema/Armada#important-)
-
-```
-https://reactdatepicker.com
-https://www.npmjs.com/package/@material/react-checkbox
-```
-
 ## Requirements
 
 [](https://github.com/jaivema/Armada#requirements)
 
 For building and running the application you need:
 
-+ JDK 1.8
-+ Maven 3
++ <mark>JDK 1.8</mark>
++ <mark>Maven 3</mark>
 
 ## Running the application locally
 
@@ -47,10 +38,8 @@ There are several ways to run a Spring Boot application on your local machine. O
 Alternatively you can use the Spring Boot Maven plugin like so:
 
 ```
-mvn spring-boot:run
+mvn spring-boot:runk
 ```
-
-<<<
 
 ### for Frontend
 
@@ -60,8 +49,6 @@ Installation and Setup Instructions Example: Clone down this repository. You wil
 
 Installation: `npm install`
 
-To Run Test Suite: `npm test`
+To Start Server: `npm run dev`
 
-To Start Server: `npm start`
-
-To Visit App: `localhost:3000`
+To Visit App: `http://localhost:5173/`

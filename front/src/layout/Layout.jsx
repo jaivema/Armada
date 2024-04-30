@@ -12,6 +12,9 @@ export default function Layout (){
                 <img id="logo" src="src/assets/LOGO_ARMADA_324x205.png"></img>             
             </Link>
             <div>
+                <Link to="/Home">
+                    Home
+                </Link>
                 <Link to="/About">
                     Acerca de
                 </Link>

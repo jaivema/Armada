@@ -17,7 +17,7 @@ body{
 }
 
 nav {
-  /*position: fixed;*/
+  position: fixed;
   background-color: #4b4f55; /* Color de fondo de la barra de navegación */
   padding: 5px 0; /* Espacio interior arriba y abajo */
   opacity: 0.8;
@@ -30,19 +30,4 @@ a {
   padding: 0px 15px; /* Espacio interior izquierda y derecha */
   text-decoration: none; /* Quita el subrayado de los enlaces */
   color: white;
-}
-
-.background-home{
-  background: url(./src/assets/DSC_-0152.webp) no-repeat;
-  height: 100vh;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  color: white;
-}
-
-.background-footer{
-  background-color: #4b4f55;
-  height: 20vh;
-  width: 100%;
 }

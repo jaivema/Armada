@@ -1,0 +1,8 @@
+.background-home{
+    background: url(./src/assets/DSC_-0152.webp) no-repeat;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }

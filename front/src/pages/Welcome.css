@@ -1,0 +1,8 @@
+.background-welcome{
+    background: url(src/assets/Portada.jpg) no-repeat;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }

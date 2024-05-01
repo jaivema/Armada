@@ -5,8 +5,9 @@ export default function About (){
   return (
     <>
       <main className="background-main">
-        <section className="products">
+        <section id="products">
           <h1>Acerca de nuestros productos</h1>
+          
           <article className="product">
             <h2>Strawberry</h2>
             <figure>

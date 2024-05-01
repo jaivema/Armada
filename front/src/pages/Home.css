@@ -1,8 +1,12 @@
 .background-home{
-    background: url(./src/assets/DSC_-0152.webp) no-repeat;
-    height: 100vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    color: white;
-  }
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;   
+  background-image: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.329),
+    rgba(0, 0, 0, 0.527)
+    ),url("src/assets/DSC_-0152.webp");
+  background-repeat:  no-repeat
+}

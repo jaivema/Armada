@@ -1,6 +1,6 @@
-html,*, ::after, ::before{ 
-  margin:0; padding: 0; box-sizing: border-box;
-}
+html,*, ::after, ::before{margin:0; padding: 0; box-sizing: border-box;}
+img{max-width:100%;}
+a{text-decoration: none;}
 
 body{
   width: 100%;
@@ -10,24 +10,3 @@ body{
   color: white;
 }
 
-#logo{
-  width: 100px; /* Ancho de la imagen en pixeles
-  max-width: 100%; /* Ajusta el tamaño máximo del logo */
-  height: auto; /* Mantiene la proporción del logo */
-}
-
-nav {
-  position: fixed;
-  background-color: #4b4f55; /* Color de fondo de la barra de navegación */
-  padding: 5px 0; /* Espacio interior arriba y abajo */
-  opacity: 0.8;
-  width: 100%;
-  
-}
-
-a {
-  display: inline-block; /* Hace que los elementos sean en línea */
-  padding: 0px 15px; /* Espacio interior izquierda y derecha */
-  text-decoration: none; /* Quita el subrayado de los enlaces */
-  color: white;
-}

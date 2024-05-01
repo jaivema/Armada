@@ -1,3 +1,4 @@
+import "./App.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Layout from "./layout/Layout"
 import Welcome from "./pages/Welcome"
@@ -5,7 +6,6 @@ import Home from "./pages/Home"
 import History from "./pages/History"
 import Shop from "./pages/Shop"
 import About from "./pages/About"
-import "./App.css"
 
 export default function App() {
   return (

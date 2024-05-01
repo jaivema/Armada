@@ -1,0 +1,19 @@
+.background-main{
+    background: url(./src/assets/pattern_paint_white_11zon.webp);
+    height: 100vh;
+    width: 100%;
+    color: black;
+}
+
+.product{
+    background-color: rgba(167, 185, 224, 0.671);
+    margin: 10px;
+    
+}.product figure{
+    height: 25vh;
+    width: 25%;
+    
+}
+.products img{
+    height: 20vh;
+}

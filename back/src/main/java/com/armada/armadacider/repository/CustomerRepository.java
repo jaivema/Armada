@@ -1,4 +1,6 @@
 package com.armada.armadacider.repository;
 
-public interface CustomerRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface CustomerRepository extends CrudRepository<Customer, String> {
 }

@@ -1,4 +1,7 @@
 package com.armada.armadacider.repository;
 
-public interface ProductRepository {
-}
+
+import com.armada.armadacider.model.Product;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ProductRepository extends CrudRepository<Product, String> {}

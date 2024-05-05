@@ -1,23 +1,30 @@
 package com.armada.armadacider.service;
 
 import com.armada.armadacider.model.Product;
+import com.armada.armadacider.repository.ProductRepository;
 import com.github.javafaker.Faker;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.UUID;
-import java.util.Locale;
+import java.util.*;
 
 @Service
 public class ProductService {
-    static ArrayList<Product> products = new ArrayList<>();
+    //static ArrayList<Product> products = new ArrayList<>();
 
     // we will fill the list products
     // with fake objects product
     // we need the faker dependency
     // and then the loop will create and add one-by-one
-    static {
+    @Autowired
+    ProductRepository productRepository;
+
+    public Iterable<Product> getAllProducts (){
+
+        return  productRepository.findAll();
+    }
+
+
+    public void populate() {
 
         // locale in english
         Faker faker = new Faker(new Locale("en-GB"));
@@ -29,7 +36,7 @@ public class ProductService {
         for (int i = 0; i <10 ; i++ ){
 
             uniqueID = UUID.randomUUID().toString();
-            products.add(
+            productRepository.save(
                     new Product ( uniqueID,
                             date.toString(),
                             faker.artist().name(), // For characteristics
@@ -39,12 +46,5 @@ public class ProductService {
         }
 
     }
-
-    // return products to controller
-    // get products form list static from class and return as signature
-    public ArrayList<Product> getAllProducts (){
-        return products;
-    }
-
 
 }

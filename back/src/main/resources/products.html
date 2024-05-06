@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TH & Spring Boot</title>
+</head>
+<body>
+<h1> Products data table</h1>
+
+<p>Author:
+    <span th:text ="${name}"> </span> </p>
+<table>
+    <tr th:each="product:${ProductRestController}">
+
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.characteristics}"></td>
+        <td th:text="${product.price}"></td>
+
+    </tr>
+</table>
+</body>
+</html>

@@ -1,11 +1,11 @@
-import "./Footer.css"
+import "./footer.css"
 
 export default function Footer() {
 
     return (
       <>
         <footer>
-          <div className="background-footer">
+          <div id="footer">
             <h2>Footer</h2>
             <p>Armada Cider</p>
             <p>Copyright &copy; violeta 2024 All Right Reserved.</p>

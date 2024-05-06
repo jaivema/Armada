@@ -1,0 +1,41 @@
+
+#home{
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;   
+  background-image: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.329),
+    rgba(0, 0, 0, 0.527)
+    ),url("src/assets/DSC_-0152.webp");
+  background-repeat:  no-repeat;
+}
+  .premium{
+    display:flex;
+    justify-content: end;
+    align-items: center;
+    background-color: red;
+    
+  }
+  .premium img{
+    width: 100px;
+  }
+#products{
+  background: url(./src/assets/pattern_paint_white_11zon.webp);
+  height: 100vh;
+  width: 100%;
+  color: black;
+  width:100%;
+  height:30%;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.product{
+  background-color: rgba(167, 185, 224, 0.671);
+  border-radius: 10px;
+  margin: 10px;
+  height:100%;
+  width: 100%;
+}

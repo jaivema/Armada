@@ -1,5 +1,6 @@
 package com.armada.armadacider.service;
 
+import com.armada.armadacider.model.Customer;
 import com.armada.armadacider.model.Product;
 import com.armada.armadacider.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 @Service
@@ -25,28 +27,29 @@ public class CustomerService {
         // locale in english
         Faker faker = new Faker(new Locale("en-GB"));
 
-        List<Product> products;
+        List<Product> products = new ArrayList<>();
         //Date date = new Date();
 
         // ref variable creation UUID
         String uniqueID;
 
-        List<Customer> customers; // Lista para almacenar los clientes generados
-
         for (int i = 0; i < 10; i++) {
+
+            products = productService.populate();
             uniqueID = UUID.randomUUID().toString();
-            Customer customer = new Customer();
-            customer.setId(uniqueID);
-            customer.setName(faker.artist().name());
-            customer.setSurname("Surname"); // Puedes reemplazar con un valor generado aleatoriamente si lo deseas
-            customer.setDirection("Dirección"); // Puedes reemplazar con un valor generado aleatoriamente si lo deseas
-            customer.setMobile("Mobile"); // Puedes reemplazar con un valor generado aleatoriamente si lo deseas
-            customer.setEmail("Email"); // Puedes reemplazar con un valor generado aleatoriamente si lo deseas
-            customers.add(customer); // Agregar el cliente a la lista
-        }
+            String phoneNumber = faker.phoneNumber().phoneNumber();
+            String address = faker.address().fullAddress();
+            Customer customer = new Customer( uniqueID,
+            faker.artist().name(),
+                    faker.artist().name(),
+                    address,
+                    phoneNumber,
+                    faker.internet().emailAddress(), products );
+
+
 
 // Guardar todos los clientes en la base de datos
-        customerRepository.saveAll(customers);
+        Customer save = customerRepository.save(customer);
 
 
     }

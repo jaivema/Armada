@@ -1,16 +1,12 @@
 package com.armada.armadacider.model;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
 
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -20,12 +16,16 @@ public class Product {
 
     @Id
     private String id;
-    private String name;
+    private String productName;
     private String characteristics;
     private float price;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Customer_FK")
-    private Customer customer;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Customer> customers = new ArrayList<>();
+
+    public void addCustomer(Customer customer) {
+        this.getCustomers().add(customer);
+
+    }
 }

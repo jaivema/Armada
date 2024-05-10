@@ -3,6 +3,8 @@ package com.armada.armadacider.service;
 import com.armada.armadacider.model.Customer;
 import com.armada.armadacider.model.Product;
 import com.armada.armadacider.repository.CustomerRepository;
+import com.armada.armadacider.repository.ProductRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import com.github.javafaker.Faker;
 import org.springframework.stereotype.Service;
@@ -17,41 +19,51 @@ public class CustomerService {
 
     @Autowired
     CustomerRepository customerRepository;
-
+    @Autowired
+    ProductRepository productRepository;
     @Autowired
     ProductService productService;
 
+    public List<Customer> createFakeCustomers() {
 
-    public void populate() {
 
         // locale in english
         Faker faker = new Faker(new Locale("en-GB"));
 
-        List<Product> products = new ArrayList<>();
+        List<Customer> customers = new ArrayList<>();
         //Date date = new Date();
 
         // ref variable creation UUID
         String uniqueID;
 
         for (int i = 0; i < 10; i++) {
-
-            products = productService.populate();
             uniqueID = UUID.randomUUID().toString();
-            String phoneNumber = faker.phoneNumber().phoneNumber();
-            String address = faker.address().fullAddress();
-            Customer customer = new Customer( uniqueID,
-            faker.artist().name(),
-                    faker.artist().name(),
-                    address,
-                    phoneNumber,
-                    faker.internet().emailAddress(), products );
+            Customer customer = new Customer();
+            customer.setId(uniqueID);
+            customer.setName(faker.artist().name());
+            customer.setSurname(faker.artist().name());
+            customer.setAddress(faker.address().fullAddress());
+            customer.setEmail(faker.internet().emailAddress());
+            customer.setPhoneNumber(faker.phoneNumber().phoneNumber());
+            customers.add(customer);
+        }
+        return customers;
+    }
+        public List<Customer> populate() {
 
+            List<Customer> customers = createFakeCustomers();
 
+            List<Product> products = productService.createFakeProducts();
 
 // Guardar todos los clientes en la base de datos
-        Customer save = customerRepository.save(customer);
-
-
-    }
-    }
+            for (Customer c: customers) {
+                customerRepository.save(c);
+                for (Product pro : products) {
+                    productRepository.save(pro);
+                    c.addProduct(pro);
+                    customerRepository.save(c);
+                }
+            }
+                return customers;
+        }
 }

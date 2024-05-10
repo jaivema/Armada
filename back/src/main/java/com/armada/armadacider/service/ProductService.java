@@ -1,6 +1,5 @@
 package com.armada.armadacider.service;
 
-import com.armada.armadacider.model.Customer;
 import com.armada.armadacider.model.Product;
 import com.armada.armadacider.repository.ProductRepository;
 import com.github.javafaker.Faker;
@@ -21,12 +20,13 @@ public class ProductService {
     ProductRepository productRepository;
 
 
+    public List<Product> createFakeProducts() {
 
-    public List<Product> populate() {
 
         // locale in english
         Faker faker = new Faker(new Locale("en-GB"));
         Date date = new Date();
+
         List<Product> products = new ArrayList<>();
         // ref variable creation UUID
         String uniqueID;
@@ -35,16 +35,31 @@ public class ProductService {
 
             uniqueID = UUID.randomUUID().toString();
             float price = (float) faker.number().randomDouble(2, 10, 1550);
-            Customer customer = new Customer();
-            Product product = new Product (uniqueID,
-                            faker.artist().name(),
-                            faker.toString(), // For characteristics
-                    price, customer );
-            productRepository.save (product);
-            products.add(product);
+           // Customer customer = new Customer();
+            Product product = new Product (
+                    uniqueID,
+                    faker.artist().name(),
+                    "Sabor manzana",
+                    (float) faker.number().randomDouble(2, 10, 1550),
+                    new ArrayList<>()
+            );
+                    //product.setName(faker.artist().name());
+                    products.add(product);
         }
 
         return products;
     }
+    public List<Product> populate() {
+        List<Product> products = createFakeProducts();
+        int qtyProducts = products.size();
 
+
+        for (int i = 0; i < qtyProducts ; i++ ){
+
+            productRepository.save(products.get(i));
+
+        }
+
+        return products;
+    }
 }

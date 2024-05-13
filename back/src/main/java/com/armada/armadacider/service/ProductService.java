@@ -42,11 +42,11 @@ public class ProductService {
                     "Sabor manzana",
                     (float) faker.number().randomDouble(2, 10, 1550),
                     new ArrayList<>()
+
             );
                     //product.setName(faker.artist().name());
                     products.add(product);
         }
-
         return products;
     }
     public List<Product> populate() {

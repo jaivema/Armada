@@ -4,11 +4,12 @@ import com.armada.armadacider.model.Customer;
 import com.armada.armadacider.model.Product;
 import com.armada.armadacider.repository.CustomerRepository;
 import com.armada.armadacider.repository.ProductRepository;
-
+import com.armada.armadacider.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.github.javafaker.Faker;
 import org.springframework.stereotype.Service;
 
+import jakarta.persistence.AttributeOverride;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;

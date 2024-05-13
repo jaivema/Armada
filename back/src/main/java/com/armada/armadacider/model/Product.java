@@ -1,10 +1,10 @@
 package com.armada.armadacider.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +21,12 @@ public class Product {
     private float price;
 
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Customer> customers = new ArrayList<>();
 
-    public void addCustomer(Customer customer) {
-        this.getCustomers().add(customer);
+    public void addCustomer (Customer customer) {
+        this.customers.add(customer);
+        //customer.getProducts().add(this);
 
     }
 }

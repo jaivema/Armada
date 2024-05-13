@@ -36,9 +36,4 @@ public class Customer {
         this.products.add(product);
         product.getCustomers().add(this);
     }
-   /* public void addProduct(Product product) {
-        this.getProducts().add(product);
-        //if (product.getId() != null) product.getId().getProducts().remove(product);
-        product.setCustomers(this);
-    }*/
 }

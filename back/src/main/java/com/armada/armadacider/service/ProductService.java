@@ -25,7 +25,7 @@ public class ProductService {
 
         // locale in english
         Faker faker = new Faker(new Locale("en-GB"));
-        Date date = new Date();
+        // Date date = new Date();
 
         List<Product> products = new ArrayList<>();
         // ref variable creation UUID

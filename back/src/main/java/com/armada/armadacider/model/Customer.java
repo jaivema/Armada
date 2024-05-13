@@ -1,10 +1,9 @@
 package com.armada.armadacider.model;
 
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,19 +21,24 @@ public class Customer {
     private String id;
     private String name;
     private String surname;
-    private String direction;
-    private String mobile;
+    private String address;
+    private String phoneNumber;
     private String email;
 
-}
+    @JsonIgnore
+    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "Customer_Product_FKS",
+            joinColumns =  @JoinColumn(name = "Customer_FKS") ,
+            inverseJoinColumns =  @JoinColumn(name = "Product_FKS") )
+    private List<Product> products = new ArrayList<>();
 
-@OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
-private List<Product> products = new ArrayList<>();
-
-}
-
-/*public void addProduct(Product product) {
-    this.getProducts().add(product);
-    //if (simulation.getId() != null) simulation.getId().getSimulations().remove(simulation);
-    productsetCustomer(this);
-  }*/
+    public void addProduct(Product product) {
+        this.products.add(product);
+        product.getCustomers().add(this);
+    }
+   /* public void addProduct(Product product) {
+        this.getProducts().add(product);
+        //if (product.getId() != null) product.getId().getProducts().remove(product);
+        product.setCustomers(this);
+    }*/

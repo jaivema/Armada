@@ -14,6 +14,8 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/v1/customers")
+
+
 public class CustomerRestController {
 
     @Autowired
@@ -23,6 +25,7 @@ public class CustomerRestController {
     //CRUD: read
     @GetMapping("/customers")
     public Iterable<Customer> getAllCustomers (){
+
 
         return customerRepository.findAll();
 

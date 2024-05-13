@@ -1,6 +1,7 @@
 package com.armada.armadacider.model;
 
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -41,4 +42,3 @@ public class Customer {
         //if (product.getId() != null) product.getId().getProducts().remove(product);
         product.setCustomers(this);
     }*/
-}

@@ -4,7 +4,7 @@ import com.armada.armadacider.model.Customer;
 import com.armada.armadacider.model.Product;
 import com.armada.armadacider.repository.CustomerRepository;
 import com.armada.armadacider.repository.ProductRepository;
-
+import com.armada.armadacider.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.github.javafaker.Faker;
 import org.springframework.stereotype.Service;
@@ -26,15 +26,14 @@ public class CustomerService {
 
     public List<Customer> createFakeCustomers() {
 
-
         // locale in english
         Faker faker = new Faker(new Locale("en-GB"));
 
         List<Customer> customers = new ArrayList<>();
-        //Date date = new Date();
 
         // ref variable creation UUID
         String uniqueID;
+
 
         for (int i = 0; i < 10; i++) {
             uniqueID = UUID.randomUUID().toString();
@@ -66,4 +65,5 @@ public class CustomerService {
             }
                 return customers;
         }
+
 }

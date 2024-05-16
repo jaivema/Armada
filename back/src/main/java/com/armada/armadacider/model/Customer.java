@@ -32,8 +32,16 @@ public class Customer {
             inverseJoinColumns =  @JoinColumn(name = "Product_FKS") )
     private List<Product> products = new ArrayList<>();
 
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<PurcharseOrder> purcharseOrders = new ArrayList<>();
+
     public void addProduct(Product product) {
         this.products.add(product);
         product.getCustomers().add(this);
+    }
+    public void addOrder (PurcharseOrder purcharseOrder) {
+        this.getPurcharseOrders().add(purcharseOrder);
+        //if (order.getId() != null) order.getId().getOrders().remove(order);
+        purcharseOrder.setCustomer(this);
     }
 }

@@ -1,4 +1,7 @@
 package com.armada.armadacider.repository;
 
-public interface OrderRepository {
+import com.armada.armadacider.model.PurcharseOrder;
+import org.springframework.data.repository.CrudRepository;
+
+public interface OrderRepository extends CrudRepository<PurcharseOrder, String> {
 }

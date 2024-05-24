@@ -1,6 +1,6 @@
 package com.armada.armadacider.service;
 
-import com.armada.armadacider.model.PurcharseOrder;
+import com.armada.armadacider.model.PurchaseOrder;
 import com.armada.armadacider.repository.OrderRepository;
 import com.github.javafaker.Faker;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +14,10 @@ public class OrderService {
     @Autowired
     OrderRepository orderRepository;
 
-    public List<PurcharseOrder> createFakeOrders() {
+    public List<PurchaseOrder> createFakeOrders() {
         Faker faker = new Faker(new Locale("en-GB"));
         Date date = new Date();
-        List<PurcharseOrder> purcharseOrders = new ArrayList<>();
+        List<PurchaseOrder> purchaseOrders = new ArrayList<>();
 
         // ref variable creation UUID
         String uniqueID;
@@ -25,25 +25,24 @@ public class OrderService {
         for (int i = 0; i < 10; i++) {
 
             uniqueID = UUID.randomUUID().toString();
-            PurcharseOrder purcharseOrder = new PurcharseOrder();
-            purcharseOrder.setId(uniqueID);
-            purcharseOrder.setDate(date);
-            purcharseOrder.setCustomerId(faker.idNumber().toString());
-            purcharseOrder.setDetailId(faker.idNumber().toString());
-            purcharseOrders.add(purcharseOrder);
+            PurchaseOrder purchaseOrder = new PurchaseOrder();
+            purchaseOrder.setId(uniqueID);
+            purchaseOrder.setDate(date);
+            purchaseOrder.setDetailId(purchaseOrder.getDetailId());
+            purchaseOrders.add(purchaseOrder);
         }
-        return purcharseOrders;
+        return purchaseOrders;
     }
-    public List<PurcharseOrder> populate() {
+    public List<PurchaseOrder> populate() {
 
-        List<PurcharseOrder> purcharseOrders = createFakeOrders();
+        List<PurchaseOrder> purchaseOrders = createFakeOrders();
 
         for (int i = 0; i <10 ; i++ ){
-            orderRepository.save(purcharseOrders.get(i));
-            purcharseOrders.add(purcharseOrders.get(i));
+            orderRepository.save(purchaseOrders.get(i));
+            purchaseOrders.add(purchaseOrders.get(i));
         }
 
-        return purcharseOrders;
+        return purchaseOrders;
     }
 
 }

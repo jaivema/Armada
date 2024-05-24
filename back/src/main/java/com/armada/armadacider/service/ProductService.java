@@ -34,15 +34,12 @@ public class ProductService {
         for (int i = 0; i <10 ; i++ ){
 
             uniqueID = UUID.randomUUID().toString();
-            float price = (float) faker.number().randomDouble(2, 10, 1550);
-           // Customer customer = new Customer();
+            float price = (float) faker.number().randomDouble(2, 0, 1550);
             Product product = new Product (
                     uniqueID,
                     faker.artist().name(),
                     "Sabor manzana",
-                    (float) faker.number().randomDouble(2, 10, 1550),
-                    new ArrayList<>()
-
+                    (float) faker.number().randomDouble(2, 0, 1550), null, null
             );
                     //product.setName(faker.artist().name());
                     products.add(product);

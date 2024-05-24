@@ -16,7 +16,7 @@ import java.util.Date;
 public class Detail {
 
     @Id
-    private String id;
+    private String detailId;
     private Date date;
     private String productName;
     private int quantity; //Actualizable
@@ -47,8 +47,8 @@ public class Detail {
     @JoinColumn(name="PurchaseOrder_FK")
     private PurchaseOrder purchaseOrder;
 
-    @JsonIgnore
+    /*@JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="Customer_FK")
-    private Customer customer;
+    private Customer customer;*/
 }

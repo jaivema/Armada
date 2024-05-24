@@ -49,13 +49,9 @@ public class ProductService {
     }
     public List<Product> populate() {
         List<Product> products = createFakeProducts();
-        int qtyProducts = products.size();
-
-
-        for (int i = 0; i < qtyProducts ; i++ ){
-
+        for (int i = 0; i <10 ; i++ ){
             productRepository.save(products.get(i));
-
+            products.add(products.get(i));
         }
 
         return products;

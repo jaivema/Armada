@@ -41,16 +41,18 @@ public class DetailService {
 
             // Obtener o crear un producto de ejemplo
             String productId = UUID.randomUUID().toString();
-           /* Product product = new Product(productId);
+            Product product = new Product();
+            product.setProductId(productId);
             productRepository.save(product);
 
             // Obtener o crear una orden de compra de ejemplo
             String purchaseOrderId = UUID.randomUUID().toString();
-            PurchaseOrder purchaseOrder = new PurchaseOrder(purchaseOrderId, date);
-            orderRepository.save(purchaseOrder);*/
+            PurchaseOrder purchaseOrder = new PurchaseOrder();
+            purchaseOrder.setPurchaseOrderId(purchaseOrderId);
+            orderRepository.save(purchaseOrder);
 
             Detail detail = new Detail();
-            detail.setId(uniqueID);
+            detail.setDetailId(uniqueID);
             detail.setDate(date);
             detail.setProductName(faker.artist().name());
             detail.setQuantity(faker.number().numberBetween(0, 500));
@@ -59,8 +61,8 @@ public class DetailService {
             detail.setTaxes(faker.number().numberBetween(0, 100));
             detail.setTotal(precioTotal);
             detail.setPaid(false);
-            /*detail.setProduct(product);
-            detail.setPurchaseOrder(purchaseOrder);*/
+            detail.setProduct(product);
+            detail.setPurchaseOrder(purchaseOrder);
 
             details.add(detail); // Agregar el detalle creado a la lista
         }

@@ -26,9 +26,9 @@ public class OrderService {
 
             uniqueID = UUID.randomUUID().toString();
             PurchaseOrder purchaseOrder = new PurchaseOrder();
-            purchaseOrder.setId(uniqueID);
+            purchaseOrder.setPurchaseOrderId(uniqueID);
             purchaseOrder.setDate(date);
-            purchaseOrder.setDetailId(purchaseOrder.getDetailId());
+            purchaseOrder.setDetailId(uniqueID);
             purchaseOrders.add(purchaseOrder);
         }
         return purchaseOrders;

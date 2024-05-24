@@ -8,23 +8,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class PurcharseOrder {
+public class PurchaseOrder {
 
     @Id
     private String id;
     private Date date;
-    private String CustomerId;
     private String DetailId;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="Customer_FK")
     private Customer customer;
+
+    @OneToMany(mappedBy = "purchaseOrder", cascade = CascadeType.ALL)
+    List<Detail> details = new ArrayList<>();
 
 }

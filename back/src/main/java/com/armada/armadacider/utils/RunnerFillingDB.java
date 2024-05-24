@@ -1,6 +1,7 @@
 package com.armada.armadacider.utils;
 
 import com.armada.armadacider.service.CustomerService;
+import com.armada.armadacider.service.DetailService;
 import com.armada.armadacider.service.OrderService;
 import com.armada.armadacider.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,16 @@ public class RunnerFillingDB implements ApplicationRunner {
     @Autowired
     OrderService orderService;
 
+    @Autowired
+    DetailService detailService;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
        productService.populate ();
        customerService.populate();
        orderService.populate();
+       detailService.populate();
 
        }
     }

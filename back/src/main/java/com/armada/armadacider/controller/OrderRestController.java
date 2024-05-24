@@ -1,6 +1,6 @@
 package com.armada.armadacider.controller;
 
-import com.armada.armadacider.model.PurcharseOrder;
+import com.armada.armadacider.model.PurchaseOrder;
 import com.armada.armadacider.repository.CustomerRepository;
 import com.armada.armadacider.repository.OrderRepository;
 import com.armada.armadacider.service.OrderService;
@@ -19,12 +19,9 @@ public class OrderRestController {
     @Autowired
     OrderRepository orderRepository;
 
-    @Autowired
-    CustomerRepository customerRepository;
-
     //CRUD: read
     @RequestMapping("/'order'")
-    public Iterable<PurcharseOrder> getAllOrders() {
+    public Iterable<PurchaseOrder> getAllOrders() {
 
         return orderRepository.findAll();
 
@@ -35,7 +32,7 @@ public class OrderRestController {
     public String deleteOrder(@RequestParam String id) {
 
         //System.out.println("id:" + id);
-        Optional<PurcharseOrder> orderFound = orderRepository.findById(id);
+        Optional<PurchaseOrder> orderFound = orderRepository.findById(id);
         long countBefore = orderRepository.count();
         //System.out.println("orderFound:" + orderFound);
 
@@ -50,28 +47,27 @@ public class OrderRestController {
 
     //CRUD: create
     @PostMapping(path = "create", consumes = "application/JSON")
-    public PurcharseOrder createOrder(@RequestBody PurcharseOrder purcharseOrder) {
+    public PurchaseOrder createOrder(@RequestBody PurchaseOrder purchaseOrder) {
         //
-        PurcharseOrder purcharseOrderCreated = orderRepository.save(purcharseOrder);
-        return purcharseOrderCreated;
+        PurchaseOrder purchaseOrderCreated = orderRepository.save(purchaseOrder);
+        return purchaseOrderCreated;
     }
 
     //CRUD: update
    @PutMapping("/update/{id}")
-    public PurcharseOrder updateOrder(@PathVariable String id, @RequestBody PurcharseOrder purcharseOrder) {
+    public PurchaseOrder updateOrder(@PathVariable String id, @RequestBody PurchaseOrder purchaseOrder) {
         // Verificar si la orden con el ID proporcionado existe en la base de datos
-        Optional<PurcharseOrder> orderFound = orderRepository.findById(id);
+        Optional<PurchaseOrder> orderFound = orderRepository.findById(id);
 
         if (orderFound.isPresent()) {
-            PurcharseOrder purcharseOrderToUpdate = orderFound.get();
+            PurchaseOrder purchaseOrderToUpdate = orderFound.get();
             // Actualizar los campos de la orden existente con los valores proporcionados en la orden actualizada
-            purcharseOrderToUpdate.setDate(purcharseOrder.getDate());
-            purcharseOrderToUpdate.setCustomerId(purcharseOrder.getCustomerId());
-            purcharseOrderToUpdate.setDetailId(purcharseOrder.getDetailId());
+            purchaseOrderToUpdate.setDate(purchaseOrder.getDate());
+            purchaseOrderToUpdate.setDetailId(purchaseOrder.getDetailId());
 
         // Guardar la orden actualizada en la base de datos
-        PurcharseOrder purcharseOrderUpdated = orderRepository.save(purcharseOrderToUpdate);
-        return purcharseOrderToUpdate;
+        PurchaseOrder purchaseOrderUpdated = orderRepository.save(purchaseOrderToUpdate);
+        return purchaseOrderToUpdate;
     } else {
             // Devolver un mensaje de error con código de estado 404 Not Found
             return null;

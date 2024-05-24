@@ -44,7 +44,6 @@ public class ProductService {
                     //product.setName(faker.artist().name());
                     products.add(product);
         }
-
         return products;
     }
     public List<Product> populate() {

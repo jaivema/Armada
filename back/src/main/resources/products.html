@@ -10,7 +10,7 @@
 <p>Author: Diana
     <span th:text ="${name}"> </span> </p>
 <table>
-    <tr th:each="product:${productRestController}">
+    <tr th:each="product:${ProductRestController}">
 
         <td th:text="${product.id}"></td>
         <td th:text="${product.name}"></td>

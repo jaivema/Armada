@@ -1,0 +1,33 @@
+header{
+    background-color: #4b4f55;
+    opacity: 0.9;
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    
+}
+    #logo{
+        width:100px;
+        
+    }
+    nav{
+        display:flex;
+        flex-direction:row;
+        
+        
+        
+    }
+    
+        #navItems {
+            display:flex;
+            align-items: center;
+            gap:.3rem 1rem
+        }   
+            #navItems a{
+                
+                color: inherit;
+            }
+            #navItems a:hover{
+                color:rgb(204, 173, 0);
+                font-weight: bolder;
+            }

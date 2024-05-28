@@ -35,8 +35,8 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<PurchaseOrder> purchaseOrders = new ArrayList<>();
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Detail> details = new ArrayList<>();
+   /* @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Detail> details = new ArrayList<>();*/
 
     public void addProduct(Product product) {
         if (product != null) {
@@ -54,10 +54,10 @@ public class Customer {
             purchaseOrder.setCustomer(this);
         }
     }
-    public void addDetail(Detail detail) {
+    /*public void addDetail(Detail detail) {
         if (detail != null) {
             this.details.add(detail);
             detail.setCustomer(this); // Asigna este cliente al detalle
         }
-    }
+    }*/
 }

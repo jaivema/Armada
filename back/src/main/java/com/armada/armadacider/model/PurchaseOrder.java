@@ -19,7 +19,7 @@ import java.util.List;
 public class PurchaseOrder {
 
     @Id
-    private String id;
+    private String purchaseOrderId;
     private Date date;
     private String DetailId;
 

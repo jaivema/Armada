@@ -47,6 +47,13 @@ public class CustomerService {
 
         for (int i = 0; i < 10; i++) {
             uniqueID = UUID.randomUUID().toString();
+
+            // Obtener o crear una orden de compra de ejemplo
+            /*String purchaseOrderId = UUID.randomUUID().toString();
+            PurchaseOrder purchaseOrders = new PurchaseOrder();
+            purchaseOrders.setPurchaseOrderId(purchaseOrderId);
+            orderRepository.save(purchaseOrders);*/
+
             Customer customer = new Customer();
             customer.setId(uniqueID);
             customer.setName(faker.artist().name());
@@ -54,6 +61,7 @@ public class CustomerService {
             customer.setAddress(faker.address().fullAddress());
             customer.setEmail(faker.internet().emailAddress());
             customer.setPhoneNumber(faker.phoneNumber().phoneNumber());
+            //customer.setPurchaseOrders(new ArrayList<>());
             customers.add(customer);
         }
         return customers;
@@ -63,7 +71,7 @@ public class CustomerService {
             List<Customer> customers = createFakeCustomers();
             List<Product> products = productService.createFakeProducts();
             List<PurchaseOrder> purchaseOrders = orderService.createFakeOrders();
-            List<Detail> details = detailService.createFakeDetails(); // Asumiendo que tienes un método para crear detalles falsos
+            //List<Detail> details = detailService.createFakeDetails(); // Asumiendo que tienes un método para crear detalles falsos
 
 // Guardar todos los clientes en la base de datos
             for (Customer c: customers) {
@@ -73,18 +81,18 @@ public class CustomerService {
                 for (PurchaseOrder ord : purchaseOrders) {
                     c.addOrder(ord);
                 }
-                for (Detail det : details) {
+                /*for (Detail det : details) {
                     // Suponiendo que tienes un método `addDetail` en `Customer` o que `Detail` está relacionado con `Customer`
                     det.setCustomer(c); // Si Detail tiene una referencia a Customer
                     c.getDetails().add(det); // Agregar detalle a la lista de detalles del cliente, si existe
-                }
+                }*/
                 customerRepository.save(c);
             }
 
             // Guardar productos y órdenes después de agregar a los clientes
             productRepository.saveAll(products);
             orderRepository.saveAll(purchaseOrders);
-            detailRepository.saveAll(details);
+            //detailRepository.saveAll(details);
 
                 return customers;
         }

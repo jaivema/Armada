@@ -4,38 +4,67 @@
   width: 100%;
   background-size: cover;
   background-position: center center;   
-  background-image: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.329),
-    rgba(0, 0, 0, 0.527)
-    ),url("src/assets/DSC_-0152.webp");
+  background-image: url("../assets/DSC_-0152.webp");
   background-repeat:  no-repeat;
 }
   .premium{
     display:flex;
     justify-content: end;
     align-items: center;
-    background-color: red;
-    
+    padding-top: 80vh;
   }
-  .premium img{
-    width: 100px;
+  .premium > img{
+    width: 160px;
   }
 #products{
-  background: url(./src/assets/pattern_paint_white_11zon.webp);
-  height: 100vh;
+  background-image: url("../assets/pattern_paint_white_11zon.webp");
   width: 100%;
   color: black;
-  width:100%;
-  height:30%;
+  height:100%;
   padding-left: 15%;
   padding-right: 15%;
+  
 }
+  .product{
+    background-color: rgba(167, 185, 224, 0.671);
+    border-radius: 10px;
+    margin: 10px;
+    height:100%;
+    width: 40%;   
+  } 
+    .bottle{
+      width: 30%;
+    }
+    .glass{
+      width:20%;
+    }
 
-.product{
-  background-color: rgba(167, 185, 224, 0.671);
-  border-radius: 10px;
-  margin: 10px;
-  height:100%;
+#history-banner{
+  background-color:navy;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+  #history-banner > img{
+    width:25%;
+  }
+
+#features{
+  background-color: navy;
+}
+#dealers{
+  background-image: linear-gradient(
+    0deg,
+    rgba(0, 0, 100, 0.329),
+    rgba(0, 0, 0, 0.527)
+  ),url("../assets/Fondo_distribuidores.jpg");
+  background-repeat:  no-repeat;
+  height: 30vh;
   width: 100%;
+  background-size: cover;
+  background-position: center center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }

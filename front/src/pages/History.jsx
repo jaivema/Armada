@@ -1,13 +1,15 @@
-import Navbar from "../layout/Navbar";
+import Navbar from "../layout/Navbar"
+import "./history.css"
 
 export default function History(){
 
     return  (
         <>
-        <main>
-            <header>
-                <Navbar />
-            </header>
+        
+        <header>
+            <Navbar />
+        </header>
+        <section id="history">
             <h1>History main</h1>
             <article>
                 <ul>
@@ -30,7 +32,8 @@ export default function History(){
                     </li>
                 </ul>
             </article>
-        </main>
+        </section>
+        
         </>
     );
 }

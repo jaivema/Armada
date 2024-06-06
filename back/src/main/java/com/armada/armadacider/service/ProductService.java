@@ -3,6 +3,7 @@ package com.armada.armadacider.service;
 import com.armada.armadacider.model.Product;
 import com.armada.armadacider.repository.ProductRepository;
 import com.github.javafaker.Faker;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -18,33 +19,40 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
-    public Iterable<Product> getAllProducts (){
 
-        return  productRepository.findAll();
-    }
+    public List<Product> createFakeProducts() {
 
-
-    public void populate() {
 
         // locale in english
         Faker faker = new Faker(new Locale("en-GB"));
-        Date date = new Date();
+        // Date date = new Date();
 
+        List<Product> products = new ArrayList<>();
         // ref variable creation UUID
         String uniqueID;
 
         for (int i = 0; i <10 ; i++ ){
 
             uniqueID = UUID.randomUUID().toString();
-            productRepository.save(
-                    new Product ( uniqueID,
-                            date.toString(),
-                            faker.artist().name(), // For characteristics
-                            (float) faker.number().randomDouble(2,10, 1550) // For price
-                    )
+            float price = (float) faker.number().randomDouble(2, 0, 1550);
+            Product product = new Product (
+                    uniqueID,
+                    faker.artist().name(),
+                    "Sabor manzana",
+                    (float) faker.number().randomDouble(2, 0, 1550), null, null
             );
+                    //product.setName(faker.artist().name());
+                    products.add(product);
+        }
+        return products;
+    }
+    public List<Product> populate() {
+        List<Product> products = createFakeProducts();
+        for (int i = 0; i <10 ; i++ ){
+            productRepository.save(products.get(i));
+            products.add(products.get(i));
         }
 
+        return products;
     }
-
 }
